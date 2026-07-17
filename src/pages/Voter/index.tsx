@@ -247,7 +247,7 @@ export const VotingArea: React.FC = () => {
                     <JoinForm onSubmit={handleJoinGame}>
                         <JoinInput
                             type="text"
-                            placeholder="Digite seu apelido (Ex: DevMaster)..."
+                            placeholder="Digite seu apelido (Ex: Um Tera)..."
                             value={nicknameInput}
                             onChange={(e) => setNicknameInput(e.target.value)}
                             maxLength={15}
