@@ -1,6 +1,5 @@
 // src/pages/Voter/index.tsx
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { db } from '../../services/firebase';
 import {
@@ -28,7 +27,6 @@ interface Player {
 }
 
 export const VotingArea: React.FC = () => {
-    const navigate = useNavigate();
 
     // Estado para gerenciar o apelido do jogador localmente
     const [nickname, setNickname] = useState<string>(localStorage.getItem('voter_nickname') || '');
