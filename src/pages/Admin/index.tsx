@@ -1,4 +1,3 @@
-// src/pages/Admin/index.tsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -349,10 +348,9 @@ export const AdminDashboard: React.FC = () => {
                         </RankingHeader>
 
                         {/* BOTÃO MOSTRAR/ESCONDER RANKING PROS USUÁRIOS */}
-                        <VisibilityButton onClick={toggleRankingVisibility} active={showRankingToUsers}>
-                            {showRankingToUsers ? '👁️ Ranking Visível para Votantes' : '🙈 Ranking Escondido para Votantes'}
+                        <VisibilityButton onClick={toggleRankingVisibility} $active={showRankingToUsers}>
+                            {showRankingToUsers ? '👁️ Ranking Visível' : '🙈 Ranking Não-Visível'}
                         </VisibilityButton>
-
                         <RankingList>
                             {players.length === 0 ? (
                                 <EmptyMessage>Nenhum participante conectado.</EmptyMessage>
@@ -423,8 +421,21 @@ const AddOptionBtn = styled.button`align-self: flex-start; color: #2563eb; font-
 const HelpText = styled.p`font-size: 0.75rem; color: #64748b;`;
 
 // Configuração do botão de Visibilidade do ranking
-const VisibilityButton = styled.button<{ active: boolean }>`background: ${props => props.active ? '#22c55e' : '#f59e0b'}; color: white; border: none; border-radius: 6px; padding: 0.5rem 0.75rem; font-weight: bold; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; &:hover { opacity: 0.9; }`;
-
+const VisibilityButton = styled.button<{ $active: boolean }>`
+  background: ${props => props.$active ? '#22c55e' : '#f59e0b'};
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:hover { 
+    opacity: 0.9; 
+  }
+`;
 // Rodadas e Ao Vivo
 const LivePanel = styled.div`background: #f8fafc; border: 2px dashed #e2e8f0; border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; h3 { font-size: 0.9rem; color: #475569; font-weight: bold; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.25rem; }`;
 const ActiveCard = styled.div`display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;`;
